@@ -12,7 +12,7 @@ class FavouritePageUi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<FavouritePageController>(
-        init: Get.find<FavouritePageController>(),
+        init:FavouritePageController(),
         builder: (FavouritePageController){
           return Scaffold(
             body: Padding(

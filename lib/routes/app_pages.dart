@@ -1,6 +1,10 @@
 
 
 import 'package:get/get.dart';
+import 'package:grocery_app/app_ui/AuthPage/FaceBookAndGoogleLogin/facebook_and_google_login.dart';
+import 'package:grocery_app/app_ui/AuthPage/FaceBookAndGoogleLogin/fb_and_google_bindings.dart';
+import 'package:grocery_app/app_ui/AuthPage/SplashScreen/splash_screen_bindings.dart';
+import 'package:grocery_app/app_ui/AuthPage/SplashScreen/splash_screen_ui.dart';
 import 'package:grocery_app/app_ui/CartPage/cart_page_ui.dart';
 import 'package:grocery_app/app_ui/Explore/explore_page_binding.dart';
 import 'package:grocery_app/app_ui/Explore/explorer_ui.dart';
@@ -19,6 +23,14 @@ import 'app_routes.dart';
 
 class AppPages {
   static var list = [
+    GetPage(name: AppRoutes.splashPage,
+        page: ()=>SplashScreenUi(),
+    binding: SplashScreenBidings(),
+    ),
+    GetPage(name: AppRoutes.LoginPage,
+      page:()=> FacebookAndGoogleLogin(),
+    binding: FaceBookAndGoogleBindings(),
+    ),
     GetPage(
         name: AppRoutes.mainPage,
         page:()=>MainScreen(),

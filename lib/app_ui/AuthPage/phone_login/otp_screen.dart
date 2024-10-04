@@ -2,30 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:grocery_app/app_ui/AuthPage/phone_login/otp_screen.dart';
-import 'package:grocery_app/utilis/color.dart';
 import 'package:grocery_app/widgets/nunito_text.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:grocery_app/app_ui/AuthPage/phone_login/phone_login_controller.dart';
+import 'package:grocery_app/utilis/color.dart';
+import 'phone_login_controller.dart';
 
-class PhoneLoginUi extends StatefulWidget {
-  const PhoneLoginUi({Key? key}) : super(key: key);
-
-  @override
-  State<PhoneLoginUi> createState() => _PhoneLoginUiState();
-}
-
-class _PhoneLoginUiState extends State<PhoneLoginUi> {
-  final TextEditingController phoneController = TextEditingController();
-  String phoneNumber = '';
+class OtpInputScreen extends StatelessWidget {
+  final TextEditingController otpController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<PhoneAuthController>(
-      init: PhoneAuthController(),
       builder: (controller) {
         return Scaffold(
-          backgroundColor: AppColor.white,
           body: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -60,39 +48,33 @@ class _PhoneLoginUiState extends State<PhoneLoginUi> {
                             Padding(
                               padding: const EdgeInsets.only(right: 70).r,
                               child: NunitoText(
-                                text: "Enter Your Phone Number",
+                                text: "Enter Your 4-Digit Code",
                                 fontSize: 25.sp,
                                 fontStyle: FontStyle.italic,
                               ),
                             ),
                             SizedBox(height: 16.h),
-                            IntlPhoneField(
-                              controller: phoneController,
+                            TextField(
+                              controller: otpController,
                               decoration: InputDecoration(
-                                labelText: 'Phone Number',
+                                labelText: 'Enter OTP',
                                 enabledBorder: UnderlineInputBorder(),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(28),
                                 ),
                               ),
-                              initialCountryCode: 'BD',
-                              onChanged: (phone) {
-                                phoneNumber = phone.completeNumber;
-                              },
+                              keyboardType: TextInputType.number,
                             ),
                             SizedBox(height: 16),
                             Padding(
                               padding: const EdgeInsets.only(left: 240).r,
                               child: Obx(() => ElevatedButton(
-                                onPressed:
-                                controller.isLoading.value
+                                onPressed: controller.isLoading.value
                                     ? null
-                                    : () => controller.sendOtp(phoneNumber),
-                                child:
-                                controller.isLoading.value
+                                    : () => controller.verifyOtp(otpController.text),
+                                child: controller.isLoading.value
                                     ? CircularProgressIndicator()
-                                    :
-                                Icon(Icons.arrow_forward),
+                                    : Icon(Icons.check),
                                 style: ElevatedButton.styleFrom(
                                   shape: CircleBorder(),
                                   backgroundColor: AppColor.colorPrimaryLightGreen,

@@ -10,7 +10,10 @@ class ExplorePageUI extends GetView<ExplorePageController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return GetBuilder<ExplorePageController>(
+      init: ExplorePageController(),
+    builder: ( controller) {
+      return Scaffold(
       body: Column(
         children: [
           // Title
@@ -66,6 +69,8 @@ class ExplorePageUI extends GetView<ExplorePageController> {
           ),
         ],
       ),
+    );
+      },
     );
   }
 

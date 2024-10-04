@@ -16,6 +16,7 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetX<MainScreenController>(
+      init: MainScreenController(),
       builder: (controller) {
         return Scaffold(
           backgroundColor: AppColor.white,

@@ -1,5 +1,7 @@
 class AppRoutes {
   static const String initial = '/';
+  static const String splashPage='/splashPage';
+  static const String LoginPage='/LoginPage';
   static const String mainPage='/mainPage';
   static const String homePage = '/HomePage';
   static const String explorePage = '/explorePage';

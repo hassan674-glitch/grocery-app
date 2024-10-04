@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -30,10 +27,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -48,7 +42,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBCHvv4p2Ms2oGJRxujeeHXWA4tpMNbaBE',
-    appId: '1:453488232417:android:4f1059d903270b6f85b4a0',
+    appId: '1:453488232417:android:26a133f44abf151585b4a0',
     messagingSenderId: '453488232417',
     projectId: 'grocery-app-f9b9c',
     storageBucket: 'grocery-app-f9b9c.appspot.com',
@@ -60,6 +54,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '453488232417',
     projectId: 'grocery-app-f9b9c',
     storageBucket: 'grocery-app-f9b9c.appspot.com',
+    androidClientId: '453488232417-rqvbc77vkp25lj2ogamlh5p52a1l21dq.apps.googleusercontent.com',
+    iosClientId: '453488232417-s0ggqnv94q97v95ecuuv7nf60n7dlafc.apps.googleusercontent.com',
     iosBundleId: 'com.example.groceryApp',
   );
 
@@ -69,6 +65,29 @@ class DefaultFirebaseOptions {
     messagingSenderId: '453488232417',
     projectId: 'grocery-app-f9b9c',
     storageBucket: 'grocery-app-f9b9c.appspot.com',
+    androidClientId: '453488232417-rqvbc77vkp25lj2ogamlh5p52a1l21dq.apps.googleusercontent.com',
+    iosClientId: '453488232417-s0ggqnv94q97v95ecuuv7nf60n7dlafc.apps.googleusercontent.com',
     iosBundleId: 'com.example.groceryApp',
   );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyAsR80roNmjAtIGookRw-GJjKYvUiqVfTc',
+    appId: '1:453488232417:web:cab8ba9de778e94a85b4a0',
+    messagingSenderId: '453488232417',
+    projectId: 'grocery-app-f9b9c',
+    authDomain: 'grocery-app-f9b9c.firebaseapp.com',
+    storageBucket: 'grocery-app-f9b9c.appspot.com',
+    measurementId: 'G-9NJ1JSCSMX',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyAsR80roNmjAtIGookRw-GJjKYvUiqVfTc',
+    appId: '1:453488232417:web:4f60db5948cfd59685b4a0',
+    messagingSenderId: '453488232417',
+    projectId: 'grocery-app-f9b9c',
+    authDomain: 'grocery-app-f9b9c.firebaseapp.com',
+    storageBucket: 'grocery-app-f9b9c.appspot.com',
+    measurementId: 'G-5X8718ZKJE',
+  );
+
 }

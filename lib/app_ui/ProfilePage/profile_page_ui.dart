@@ -1,18 +1,27 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:grocery_app/app_ui/AuthPage/FaceBookAndGoogleLogin/facebook_and_google_login.dart';
 import 'package:grocery_app/app_ui/ProfilePage/profile_page_controller.dart';
 import 'package:grocery_app/generated/assets.dart';
+import 'package:grocery_app/routes/app_routes.dart';
 import 'package:grocery_app/utilis/color.dart';
 import 'package:grocery_app/widgets/nunito_text.dart';
+
+import '../MapPage/map_page.dart';
 
 class ProfilePageUi extends GetView<ProfilePageController> {
   const ProfilePageUi({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return GetBuilder<ProfilePageController>(
+      init: ProfilePageController(),
+      builder: ( controller) {
+        return Scaffold(
       backgroundColor: Colors.grey[100],
       body: Padding(
         padding: EdgeInsets.all(16.r),
@@ -37,7 +46,7 @@ class ProfilePageUi extends GetView<ProfilePageController> {
                         children: [
                           NunitoText(
                             text: "Afsar Hossen",
-                           fontStyle: FontStyle.italic,
+                            fontStyle: FontStyle.italic,
                             fontSize: 20.sp,
                           ),
                           IconButton(
@@ -62,6 +71,13 @@ class ProfilePageUi extends GetView<ProfilePageController> {
             Expanded(
               child: ListView(
                 children: [
+                  _buildMenuItem(
+                      icon: Assets.vectorsMaps,
+                      label: "Find The Location",
+                      onTap: (){
+                        Get.to(MapPage());
+                      }
+                  ),
                   _buildMenuItem(
                     icon: Assets.vectorsOrdersicon,
                     label: "Orders",
@@ -124,12 +140,18 @@ class ProfilePageUi extends GetView<ProfilePageController> {
                   ),
                   minimumSize: Size(double.infinity, 50.h),
                 ),
-                onPressed: () {},
+                onPressed: () {
+
+                  Get.toNamed(AppRoutes.LoginPage);
+                  controller.logout();
+                },
               ),
             ),
           ],
         ),
       ),
+    );
+        },
     );
   }
 

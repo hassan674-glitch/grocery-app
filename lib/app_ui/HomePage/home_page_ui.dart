@@ -29,6 +29,7 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         body: GetBuilder<HomePageController>(
+          init: HomePageController(),
           builder: (homePageController) {
             return SingleChildScrollView(
               child: Column(

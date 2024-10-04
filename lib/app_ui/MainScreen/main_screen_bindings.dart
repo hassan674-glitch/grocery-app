@@ -9,11 +9,11 @@ import '../ProfilePage/profile_page_controller.dart';
 class MainScreenBindings extends Bindings {
   @override
   void dependencies() {
-    Get.put(MainScreenController());
-    Get.put(HomePageController());
-    Get.put(ExplorePageController());
-    Get.put(CartPageController());
-    Get.put(FavouritePageController());
-    Get.put(ProfilePageController());
+    Get.lazyPut(() => MainScreenController());
+    Get.lazyPut(() => HomePageController());
+    Get.lazyPut(() => ExplorePageController());
+    Get.lazyPut(() => CartPageController());
+    Get.lazyPut(() => FavouritePageController());
+    Get.lazyPut(() => ProfilePageController());
   }
 }

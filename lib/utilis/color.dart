@@ -21,10 +21,10 @@ class AppColor {
   static const colorSecondaryLightYellow = Color(0xFFFFCD53);
   static const colorBackGroundLight = Color(0xffFFFFFF);
   static const colorTextWhite = Color(0xffFFFFFF);
-  static const colorTextGrayLight = Color(0xFFC8C7D2);
+  static const colorTextGrayLight = Color(0xFF828282);
   static const colorTextGrayDark = Color(0xFF302E4A);
 
-  static const colorRed = Color(0xFFE03842);
+  static const colorblue = Color(0xFF5383EC);
   static const colorGreen = Color(0xff5AD27C);
   static const darkGreen=Color(0xff53B175);
   static const colorInputBackground = Color(0xff1C2B37);

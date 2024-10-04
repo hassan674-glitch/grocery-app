@@ -15,6 +15,7 @@ class Assets {
   static const String imagesDairy = 'assets/images/dairy.png';
   static const String imagesEggs = 'assets/images/eggs.png';
   static const String imagesFirstImage = 'assets/images/firstImage.png';
+  static const String imagesFlag = 'assets/images/flag.png';
   static const String imagesFruits = 'assets/images/fruits.png';
   static const String imagesMayonise = 'assets/images/mayonise.png';
   static const String imagesMeat = 'assets/images/meat.png';
@@ -36,9 +37,11 @@ class Assets {
   static const String vectorsBellicon = 'assets/vectors/Bellicon.svg';
   static const String vectorsCarrot = 'assets/vectors/carrot.svg';
   static const String vectorsDeliceryaddress = 'assets/vectors/Deliceryaddress.svg';
+  static const String vectorsGoogle = 'assets/vectors/Google.svg';
   static const String vectorsHeart = 'assets/vectors/heart.svg';
   static const String vectorsHelpicon = 'assets/vectors/helpicon.svg';
   static const String vectorsHome = 'assets/vectors/home.svg';
+  static const String vectorsMaps = 'assets/vectors/Maps.svg';
   static const String vectorsOrdersicon = 'assets/vectors/Ordersicon.svg';
   static const String vectorsPaymenticon = 'assets/vectors/Paymenticon.svg';
   static const String vectorsPerson = 'assets/vectors/person.svg';

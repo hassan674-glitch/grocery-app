@@ -131,7 +131,7 @@ class _ProductDetailPageUiState extends State<ProductDetailPageUi> {
   // Quantity Selector Widget
   Widget _buildQuantitySelector() {
     int value = 0;
-    return StatefulBuilder( // Use StatefulBuilder for managing state inside a widget
+    return StatefulBuilder(
       builder: (context, setState) {
         return Row(
           children: [
@@ -139,7 +139,7 @@ class _ProductDetailPageUiState extends State<ProductDetailPageUi> {
               icon: Icon(Icons.remove_circle, color: Colors.green),
               onPressed: () {
                 setState(() {
-                  if (value > 0) {  // Ensure value does not go below zero
+                  if (value > 0) {
                     value--;
                   }
                 });
@@ -152,7 +152,7 @@ class _ProductDetailPageUiState extends State<ProductDetailPageUi> {
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Text(
-                value.toString(),  // Corrected: Convert int to String using .toString()
+                value.toString(),
                 style: GoogleFonts.nunito(fontSize: 16.0),
               ),
             ),
